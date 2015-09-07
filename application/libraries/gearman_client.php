@@ -3,12 +3,25 @@
 /**
  *
  * Class to utilize Gearman http://gearman.org/
- * @author Romdoni Agung Purbayanto <donnydiunindra@gmail.com>
+ *
+ * @package     CodeIgniter
+ * @author 		Romdoni Agung Purbayanto <donnydiunindra@gmail.com>
+ * @link 		https://github.com/black-lotus/gearman-codeigniter-library
  */
 class Gearman_client {
 
+	/**
+     * ci
+     *
+     * @param instance object
+     */
 	private $CI = null;
 
+	/**
+     * gearman client
+     *
+     * @param instance object
+     */
 	var $instance = null;
 
 	function __construct() {
@@ -81,6 +94,40 @@ class Gearman_client {
 		return TRUE;
 	}
 
-	
+	public function set_created_callback($callback) {
+		if ($callback) {
+			$this->instance->setCreatedCallback($callback);
+		}
+	}
+
+	public function set_data_callback($callback) {
+		if ($callback) {
+			$this->instance->setDataCallback($callback);
+		}
+	}
+
+	public function set_status_callback($callback) {
+		if ($callback) {
+			$this->instance->setStatusCallback($callback);
+		}
+	}
+
+	public function set_complete_callback($callback) {
+		if ($callback) {
+			$this->instance->setCompleteCallback($callback);
+		}
+	}
+
+	public function set_fail_callback($callback) {
+		if ($callback) {
+			$this->instance->setFailCallback($callback);
+		}
+	}
+
+	public function addTask($task_name = null, $task_params = null, $context = null, $unique = null) {
+		if ($task_name) {
+			$this->instance->addTask($task_name, $task_params, $context, $unique);
+		}
+	}
 
 }

@@ -1,9 +1,27 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed gearman');
 
+/**
+ *
+ * Class to utilize Gearman http://gearman.org/
+ *
+ * @package     CodeIgniter
+ * @author 		Romdoni Agung Purbayanto <donnydiunindra@gmail.com>
+ * @link 		https://github.com/black-lotus/gearman-codeigniter-library
+ */
 class Gearman_worker {
 
+	/**
+     * ci
+     *
+     * @param instance object
+     */
 	private $CI = null;
 
+	/**
+     * gearman worker
+     *
+     * @param instance object
+     */
 	var $instance = null;
 
 	function __construct() {
